@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="orientador")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\OrientadorRepository")
+ * @ORM\Entity()
  */
 class Orientador extends Pessoa
 {

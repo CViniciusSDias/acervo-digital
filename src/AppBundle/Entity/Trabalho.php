@@ -37,7 +37,7 @@ class Trabalho
      * @var Orientador
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Orientador")
      */
-    private $orientadaor;
+    private $orientadador;
 
     /**
      * @var Tag[]
@@ -78,14 +78,14 @@ class Trabalho
         return $this;
     }
 
-    public function getOrientadaor(): Pessoa
+    public function getOrientadador(): Pessoa
     {
-        return $this->orientadaor;
+        return $this->orientadador;
     }
 
-    public function setOrientadaor(Pessoa $orientadaor): Trabalho
+    public function setOrientadador(Pessoa $orientadador): Trabalho
     {
-        $this->orientadaor = $orientadaor;
+        $this->orientadador = $orientadador;
         return $this;
     }
 

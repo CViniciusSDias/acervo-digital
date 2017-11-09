@@ -1,0 +1,3 @@
+AppBundle\Entity\Orientador:
+   orientador_{1..10}:
+       nome (unique): <name()>

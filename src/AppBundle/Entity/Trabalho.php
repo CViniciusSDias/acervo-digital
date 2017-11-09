@@ -21,9 +21,9 @@ class Trabalho
     private $id;
 
     /**
-     * @var \DateTime
+     * @var int
      *
-     * @ORM\Column(name="anoPublicacao", type="date")
+     * @ORM\Column(name="anoPublicacao", type="integer")
      */
     private $anoPublicacao;
 
@@ -37,7 +37,7 @@ class Trabalho
      * @var Orientador
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Orientador")
      */
-    private $orientadador;
+    private $orientador;
 
     /**
      * @var Tag[]
@@ -55,14 +55,14 @@ class Trabalho
         return $this->id;
     }
 
-    public function setAnoPublicacao(\DateTime $anoPublicacao): Trabalho
+    public function setAnoPublicacao(int $anoPublicacao): Trabalho
     {
         $this->anoPublicacao = $anoPublicacao;
 
         return $this;
     }
 
-    public function getAnoPublicacao(): \DateTime
+    public function getAnoPublicacao(): int
     {
         return $this->anoPublicacao;
     }
@@ -78,14 +78,14 @@ class Trabalho
         return $this;
     }
 
-    public function getOrientadador(): Pessoa
+    public function getOrientador(): Pessoa
     {
-        return $this->orientadador;
+        return $this->orientador;
     }
 
-    public function setOrientadador(Pessoa $orientadador): Trabalho
+    public function setOrientador(Pessoa $orientador): Trabalho
     {
-        $this->orientadador = $orientadador;
+        $this->orientador = $orientador;
         return $this;
     }
 

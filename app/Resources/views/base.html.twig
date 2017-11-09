@@ -2,12 +2,84 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Acervo Digital{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
+            <style>
+                .cabecalho-pagina {
+                    box-shadow: 0 2px 1px rgba(0, 0, 0, .15);
+                }
+
+                .lista-menu-principal > li {
+                    width: calc(20% - 2px);
+                    text-align: center;
+                }
+
+                .logo-faeterj {
+                    width: 100px;
+                }
+
+                .menu-principal {
+                    margin-top: 1em;
+                }
+            </style>
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+    <div class="container">
+        <header class="clearfix cabecalho-pagina">
+            <img src="{{ asset('images/logo-faeterj.png') }}" alt="FAETERJ Petrópolis" class="pull-left logo-faeterj">
+            <h1 class="text-center">Acervo Digital <small>Trabalhos de Conclusão de Curso</small></h1>
+        </header>
+
+        <nav class="menu-principal">
+            <ul class="nav nav-pills lista-menu-principal">
+                <li role="presentation" class="active">
+                    <a href="#">Home</a>
+                </li>
+                <li role="presentation">
+                    <a href="#">Busca Avançada</a>
+                </li>
+                <li role="presentation" class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+                      aria-expanded="false">
+                        Acervo <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#">Linhas de Pesquisa</a>
+                        </li>
+                        <li>
+                            <a href="#">Ano de Publicação</a>
+                        </li>
+                        <li>
+                            <a href="#">Orientadores</a>
+                        </li>
+                        <li>
+                            <a href="#">Autores</a>
+                        </li>
+                        <li>
+                            <a href="#">Palavras-chave</a>
+                        </li>
+                    </ul>
+                </li>
+                <li role="presentation">
+                    <a href="#">Ajuda</a>
+                </li>
+                <li role="presentation">
+                    <a href="#">Contato</a>
+                </li>
+            </ul>
+        </nav>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+    </div>
+
+    {% block javascripts %}
+        <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    {% endblock %}
     </body>
 </html>

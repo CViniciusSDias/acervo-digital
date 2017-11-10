@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class AcervoController extends Controller
 {
     /**
-     * @Route("/acervo/ano-publicacao")
+     * @Route("/acervo/ano-publicacao", name="lista_anos")
      */
     public function anoPublicacaoAction()
     {

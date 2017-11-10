@@ -21,7 +21,7 @@
                     width: 100px;
                 }
 
-                .menu-principal {
+                .menu-principal, .conteudo-principal {
                     margin-top: 1em;
                 }
             </style>
@@ -74,7 +74,10 @@
                 </li>
             </ul>
         </nav>
+
+        <main class="conteudo-principal">
         {% block body %}{% endblock %}
+        </main>
     </div>
 
     {% block javascripts %}

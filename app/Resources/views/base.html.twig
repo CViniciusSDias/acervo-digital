@@ -77,13 +77,14 @@
 
         <br>
 
+        {% set _block = block('breadcrumb') %}
+        {% if _block is not empty %}
         <nav>
             <ol class="breadcrumb">
-                {% block breadcrumb %}
-                    <li class="active">Home</li>
-                {% endblock %}
+                {{ _block|raw }}
             </ol>
         </nav>
+        {% endif %}
 
         <main class="conteudo-principal">
         {% block body %}{% endblock %}

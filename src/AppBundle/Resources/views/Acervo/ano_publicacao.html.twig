@@ -6,7 +6,7 @@
     <ul class="list-group">
         {% for ano in anos %}
         <li class="list-group-item">
-            <a href="#">{{ ano }}</a>
+            <a href="{{ path('trabalhos_por_ano', {'ano': ano}) }}">{{ ano }}</a>
         </li>
         {% endfor %}
     </ul>

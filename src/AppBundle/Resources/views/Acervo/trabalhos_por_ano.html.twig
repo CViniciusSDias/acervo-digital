@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <h2>Trabalhos</h2>
+
+    <ul class="list-group">
+        {% for trabalho in trabalhos %}
+            <li class="list-group-item">
+                <a href="#">{{ trabalho.titulo }} - {{ trabalho.anoPublicacao }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

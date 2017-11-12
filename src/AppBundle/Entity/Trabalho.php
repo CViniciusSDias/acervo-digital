@@ -21,6 +21,13 @@ class Trabalho
     private $id;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="titulo", type="string", length=255, unique=true)
+     */
+    private $titulo;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="anoPublicacao", type="integer")
@@ -65,6 +72,17 @@ class Trabalho
     public function getAnoPublicacao(): int
     {
         return $this->anoPublicacao;
+    }
+
+    public function getTitulo(): string
+    {
+        return $this->titulo;
+    }
+
+    public function setTitulo(string $titulo): Trabalho
+    {
+        $this->titulo = $titulo;
+        return $this;
     }
 
     public function getAutor(): Pessoa

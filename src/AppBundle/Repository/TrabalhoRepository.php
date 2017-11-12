@@ -4,6 +4,9 @@ namespace AppBundle\Repository;
 
 class TrabalhoRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @return int[]
+     */
     public function buscarAnos(): array
     {
         $query = $this->createQueryBuilder('t')
@@ -17,5 +20,10 @@ class TrabalhoRepository extends \Doctrine\ORM\EntityRepository
         return array_map(function ($ano) {
             return $ano['anoPublicacao'];
         }, $arrayAnos);
+    }
+
+    public function buscarPorAno(int $ano): array
+    {
+        return $this->findBy(['anoPublicacao' => $ano]);
     }
 }

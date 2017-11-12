@@ -75,6 +75,16 @@
             </ul>
         </nav>
 
+        <br>
+
+        <nav>
+            <ol class="breadcrumb">
+                {% block breadcrumb %}
+                    <li class="active">Home</li>
+                {% endblock %}
+            </ol>
+        </nav>
+
         <main class="conteudo-principal">
         {% block body %}{% endblock %}
         </main>

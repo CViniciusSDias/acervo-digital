@@ -27,10 +27,19 @@
         <dt>Resumo:</dt>
         <dd>{{ trabalho.resumo }}</dd>
 
+        <dt>Linhas de pesquisa:</dt>
+        <dd>
+            <ul>
+            {% for linha in trabalho.linhasPesquisa %}
+                <li>{{ linha.descricao }}</li>
+            {% endfor %}
+            </ul>
+        </dd>
+
         <dt>Palavras-chave:</dt>
         <dd>
             {% for tag in trabalho.tags %}
-                {{ tag.nome }}
+                <h4><span class="label label-primary">{{ tag.nome }}</span></h4>
             {% endfor %}
         </dd>
     </dl>

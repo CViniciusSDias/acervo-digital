@@ -77,11 +77,10 @@
 
         <br>
 
-        {% set _block = block('breadcrumb') %}
-        {% if _block is not empty %}
+        {% if block('breadcrumb') is defined %}
         <nav>
             <ol class="breadcrumb">
-                {{ _block|raw }}
+                {{ block('breadcrumb')|raw }}
             </ol>
         </nav>
         {% endif %}

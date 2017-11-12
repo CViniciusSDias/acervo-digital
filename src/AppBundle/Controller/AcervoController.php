@@ -28,4 +28,12 @@ class AcervoController extends Controller
 
         return $this->render('@App/Acervo/trabalhos_por_ano.html.twig', compact('trabalhos'));
     }
+
+    /**
+     * @Route("/acervo/trabalho/{trabalho}", name="trabalho")
+     */
+    public function trabalho(Trabalho $trabalho): Response
+    {
+        return $this->render('@App/Acervo/trabalho.html.twig', compact('trabalho'));
+    }
 }

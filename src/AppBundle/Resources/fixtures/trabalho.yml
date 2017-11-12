@@ -2,5 +2,7 @@ AppBundle\Entity\Trabalho:
     trabalho_{1..20}:
         titulo: <sentence()>
         anoPublicacao: <numberBetween(2010, 2017)>
+        resumo: <paragraphs(3, true)>
         autor: '@autor_<current()>'
         orientador: '@orientador*'
+        tags: '5x @tag*'

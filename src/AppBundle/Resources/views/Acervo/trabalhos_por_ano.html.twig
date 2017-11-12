@@ -12,7 +12,7 @@
     <ul class="list-group">
         {% for trabalho in trabalhos %}
             <li class="list-group-item">
-                <a href="#">{{ trabalho.titulo }} - {{ trabalho.anoPublicacao }}</a>
+                <a href="{{ path('trabalho', {'trabalho': trabalho.id}) }}">{{ trabalho.titulo }} - {{ trabalho.anoPublicacao }}</a>
             </li>
         {% endfor %}
     </ul>

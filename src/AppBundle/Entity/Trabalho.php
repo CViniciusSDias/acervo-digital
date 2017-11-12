@@ -29,6 +29,13 @@ class Trabalho
     private $titulo;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="resumo", type="text")
+     */
+    private $resumo;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="anoPublicacao", type="integer")
@@ -93,6 +100,17 @@ class Trabalho
         return $this;
     }
 
+    public function getResumo(): string
+    {
+        return $this->resumo;
+    }
+
+    public function setResumo(string $resumo): Trabalho
+    {
+        $this->resumo = $resumo;
+        return $this;
+    }
+
     public function getAutor(): Pessoa
     {
         return $this->autor;
@@ -115,7 +133,7 @@ class Trabalho
         return $this;
     }
 
-    public function getTags(): ArrayCollection
+    public function getTags(): Collection
     {
         return $this->tags;
     }

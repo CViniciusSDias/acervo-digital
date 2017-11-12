@@ -5,4 +5,5 @@ AppBundle\Entity\Trabalho:
         resumo: <paragraphs(3, true)>
         autor: '@autor_<current()>'
         orientador: '@orientador*'
-        tags: '5x @tag*'
+        tags: ['@tag*']
+        linhasPesquisa: ['@linha_pesquisa*']

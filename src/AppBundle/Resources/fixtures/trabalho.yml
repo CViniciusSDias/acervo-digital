@@ -1,6 +1,6 @@
 AppBundle\Entity\Trabalho:
-    trabalho_{1..10}:
+    trabalho_{1..20}:
         titulo: <sentence()>
-        anoPublicacao: <year()>
-        autor: '@autor*'
+        anoPublicacao: <numberBetween(2010, 2017)>
+        autor: '@autor_<current()>'
         orientador: '@orientador*'

@@ -48,7 +48,7 @@ class Trabalho
 
     /**
      * @var Tag[]
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag", inversedBy="trabalhos")
      */
     private $tags;
 

@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <h2>Linhas de Pesquisa</h2>
+
+    <ul class="list-group">
+        {% for linha in linhasPesquisa %}
+        <li class="list-group-item">
+            <a href="{{ path('trabalhos_por_linha_pesquisa', {'linhaPesquisa': linha.id}) }}">{{ linha.descricao }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -75,16 +75,6 @@
             </ul>
         </nav>
 
-        <br>
-
-        {% if block('breadcrumb') is defined %}
-        <nav>
-            <ol class="breadcrumb">
-                {{ block('breadcrumb')|raw }}
-            </ol>
-        </nav>
-        {% endif %}
-
         <main class="conteudo-principal">
         {% block body %}{% endblock %}
         </main>

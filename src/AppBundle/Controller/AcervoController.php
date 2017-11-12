@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\LinhaPesquisa;
 use AppBundle\Entity\Trabalho;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -25,8 +26,9 @@ class AcervoController extends Controller
     public function trabalhosPorAnoAction(int $ano): Response
     {
         $trabalhos = $this->getDoctrine()->getRepository(Trabalho::class)->buscarPorAno($ano);
+        $titulo = "Trabalhos de $ano";
 
-        return $this->render('@App/Acervo/trabalhos_por_ano.html.twig', compact('trabalhos'));
+        return $this->render('@App/Acervo/trabalhos.html.twig', compact('trabalhos', 'titulo'));
     }
 
     /**
@@ -35,5 +37,27 @@ class AcervoController extends Controller
     public function trabalho(Trabalho $trabalho): Response
     {
         return $this->render('@App/Acervo/trabalho.html.twig', compact('trabalho'));
+    }
+
+
+    /**
+     * @Route("/acervo/linha-pesquisa", name="lista_linhas_pesquisa")
+     */
+    public function linhasPesquisaAction(): Response
+    {
+        $linhasPesquisa = $this->getDoctrine()->getRepository(LinhaPesquisa::class)->findAll();
+
+        return $this->render('AppBundle:Acervo:linhas_pesquisa.html.twig', compact('linhasPesquisa'));
+    }
+
+    /**
+     * @Route("/acervo/linha-pesquisa/{linhaPesquisa}", name="trabalhos_por_linha_pesquisa")
+     */
+    public function trabalhosPorLinhaPesquisaAction(LinhaPesquisa $linhaPesquisa): Response
+    {
+        $trabalhos = $linhaPesquisa->getTrabalhos();
+        $titulo = 'Trabalhos da linha ' . $linhaPesquisa->getDescricao();
+
+        return $this->render('@App/Acervo/trabalhos.html.twig', compact('trabalhos', 'titulo'));
     }
 }

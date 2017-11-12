@@ -1,13 +1,7 @@
 {% extends "::base.html.twig" %}
 
-{% block breadcrumb %}
-    <li><a href="{{ path('index') }}">Home</a></li>
-    <li><a href="{{ path('lista_anos') }}">Anos de Publicação</a></li>
-    <li class="active">Trabalhos de {{ app.request.get('ano') }}</li>
-{% endblock %}
-
 {% block body %}
-    <h2>Trabalhos de {{ app.request.get('ano') }}</h2>
+    <h2>{{ titulo }}</h2>
 
     <ul class="list-group">
         {% for trabalho in trabalhos %}

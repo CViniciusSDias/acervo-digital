@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -34,6 +36,11 @@ class LinhaPesquisa
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Trabalho", mappedBy="linhasPesquisa")
      */
     private $trabalhos;
+
+    public function __construct()
+    {
+        $this->trabalhos = new ArrayCollection();
+    }
 
 
     /**
@@ -68,5 +75,10 @@ class LinhaPesquisa
     public function getDescricao(): string
     {
         return $this->descricao;
+    }
+
+    public function getTrabalhos(): Collection
+    {
+        return $this->trabalhos;
     }
 }

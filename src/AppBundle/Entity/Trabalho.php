@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -52,9 +53,16 @@ class Trabalho
      */
     private $tags;
 
+    /**
+     * @var LinhaPesquisa[]
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\LinhaPesquisa", inversedBy="trabalhos")
+     */
+    private $linhasPesquisa;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->linhasPesquisa = new ArrayCollection();
     }
 
     public function getId()
@@ -118,5 +126,14 @@ class Trabalho
         return $this;
     }
 
+    public function getLinhasPesquisa(): Collection
+    {
+        return $this->linhasPesquisa;
+    }
 
+    public function addLinhaPesquisa(LinhaPesquisa $linhaPesquisa): Trabalho
+    {
+        $this->linhasPesquisa->add($linhaPesquisa);
+        return $this;
+    }
 }

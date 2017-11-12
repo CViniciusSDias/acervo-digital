@@ -28,6 +28,13 @@ class LinhaPesquisa
      */
     private $descricao;
 
+    /**
+     * @var Trabalho[]
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Trabalho", mappedBy="linhasPesquisa")
+     */
+    private $trabalhos;
+
 
     /**
      * Get id

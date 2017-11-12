@@ -1,0 +1,37 @@
+{% extends "::base.html.twig" %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style>
+        dd {
+            margin-bottom: 1em;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <dl>
+        <dt>Titulo:</dt>
+        <dd>{{ trabalho.titulo }}</dd>
+
+        <dt>Ano:</dt>
+        <dd>{{ trabalho.anoPublicacao }}</dd>
+
+        <dt>Autor:</dt>
+        <dd>{{ trabalho.autor.nome }}</dd>
+
+        <dt>Orientador:</dt>
+        <dd>{{ trabalho.orientador.nome }}</dd>
+
+        <dt>Resumo:</dt>
+        <dd>{{ trabalho.resumo }}</dd>
+
+        <dt>Palavras-chave:</dt>
+        <dd>
+            {% for tag in trabalho.tags %}
+                {{ tag.nome }}
+            {% endfor %}
+        </dd>
+    </dl>
+{% endblock %}

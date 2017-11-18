@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\LinhaPesquisa;
+use AppBundle\Entity\Orientador;
 use AppBundle\Entity\Trabalho;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -57,6 +58,28 @@ class AcervoController extends Controller
     {
         $trabalhos = $linhaPesquisa->getTrabalhos();
         $titulo = 'Trabalhos da linha ' . $linhaPesquisa->getDescricao();
+
+        return $this->render('@App/Acervo/trabalhos.html.twig', compact('trabalhos', 'titulo'));
+    }
+
+    /**
+     * @Route("/acervo/orientador", name="lista_orientadores")
+     */
+    public function orientadoresAction(): Response
+    {
+        $orientadores = $this->getDoctrine()->getRepository(Orientador::class)->findAll();
+
+        return $this->render('@App/Acervo/orientadores.html.twig', compact('orientadores'));
+    }
+
+    /**
+     * @Route("/acervo/orientador/{orientador}", name="trabalhos_por_orientador")
+     */
+    public function trabalhosPorOrientadorAction(Orientador $orientador): Response
+    {
+        $trabalhos = $this->getDoctrine()->getRepository(Trabalho::class)
+            ->findBy(['orientador' => $orientador]);
+        $titulo = 'Trabalhos orientados por ' . $orientador->getNome();
 
         return $this->render('@App/Acervo/trabalhos.html.twig', compact('trabalhos', 'titulo'));
     }

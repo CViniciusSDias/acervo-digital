@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <h2>Orientadores</h2>
+
+    <ul class="list-group">
+        {% for orientador in orientadores %}
+            <li class="list-group-item">
+                <a href="{{ path('trabalhos_por_orientador', {'orientador': orientador.id}) }}">{{ orientador.nome }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

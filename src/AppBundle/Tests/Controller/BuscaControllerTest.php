@@ -4,7 +4,7 @@ namespace AppBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class BuscaControllerControllerTest extends WebTestCase
+class BuscaControllerTest extends WebTestCase
 {
     public function testBuscar()
     {

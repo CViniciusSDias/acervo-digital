@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <h2>Palavras-chave</h2>
+
+    <ul class="list-group">
+        {% for tag in tags %}
+            <li class="list-group-item">
+                <a href="{{ path('trabalhos_por_tag', {'tag': tag.id}) }}">{{ tag.nome }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

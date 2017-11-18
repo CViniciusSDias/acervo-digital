@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Autor;
 use AppBundle\Entity\LinhaPesquisa;
 use AppBundle\Entity\Orientador;
+use AppBundle\Entity\Tag;
 use AppBundle\Entity\Trabalho;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -40,7 +41,6 @@ class AcervoController extends Controller
     {
         return $this->render('@App/Acervo/trabalho.html.twig', compact('trabalho'));
     }
-
 
     /**
      * @Route("/acervo/linha-pesquisa", name="lista_linhas_pesquisa")
@@ -103,6 +103,27 @@ class AcervoController extends Controller
         $trabalhos = $this->getDoctrine()->getRepository(Trabalho::class)
             ->findBy(['autor' => $autor]);
         $titulo = 'Trabalhos do autor ' . $autor->getNome();
+
+        return $this->render('@App/Acervo/trabalhos.html.twig', compact('trabalhos', 'titulo'));
+    }
+
+    /**
+     * @Route("/acervo/palavra-chave", name="lista_tags")
+     */
+    public function tagsAction(): Response
+    {
+        $tags = $this->getDoctrine()->getRepository(Tag::class)->findAll();
+
+        return $this->render('@App/Acervo/tags.html.twig', compact('tags'));
+    }
+
+    /**
+     * @Route("/acervo/palavra-chave/{tag}", name="trabalhos_por_tag")
+     */
+    public function trabalhosPorTag(Tag $tag): Response
+    {
+        $trabalhos = $tag->getTrabalhos();
+        $titulo = 'Trabalhos com a palavra-chave ' . $tag->getNome();
 
         return $this->render('@App/Acervo/trabalhos.html.twig', compact('trabalhos', 'titulo'));
     }

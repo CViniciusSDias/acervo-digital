@@ -12,5 +12,4 @@ class BuscaControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/buscar');
     }
-
 }

@@ -16,7 +16,7 @@ class TrabalhoRepository extends \Doctrine\ORM\EntityRepository
     {
         $query = $this->createQueryBuilder('t')
             ->select('t.anoPublicacao')
-            ->orderBy(  't.anoPublicacao', 'DESC')
+            ->orderBy('t.anoPublicacao', 'DESC')
             ->distinct(true)
             ->getQuery();
 
@@ -49,6 +49,5 @@ class TrabalhoRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
 
         return $query->execute();
-
     }
 }

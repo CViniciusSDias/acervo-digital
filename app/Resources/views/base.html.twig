@@ -9,7 +9,7 @@
             <link rel="stylesheet" href="{{ asset('css/bootstrap-theme.min.css') }}">
             <style>
                 .cabecalho-pagina {
-                    box-shadow: 0 2px 1px rgba(0, 0, 0, .15);
+                    border-bottom: 1px solid #cccccc;
                 }
 
                 .lista-menu-principal > li {
@@ -50,7 +50,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#">Linhas de Pesquisa</a>
+                            <a href="{{ path('lista_linhas_pesquisa') }}">Linhas de Pesquisa</a>
                         </li>
                         <li>
                             <a href="{{ path('lista_anos') }}">Ano de Publicação</a>

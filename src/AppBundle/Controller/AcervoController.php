@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Autor;
 use AppBundle\Entity\LinhaPesquisa;
 use AppBundle\Entity\Orientador;
 use AppBundle\Entity\Trabalho;
@@ -80,6 +81,28 @@ class AcervoController extends Controller
         $trabalhos = $this->getDoctrine()->getRepository(Trabalho::class)
             ->findBy(['orientador' => $orientador]);
         $titulo = 'Trabalhos orientados por ' . $orientador->getNome();
+
+        return $this->render('@App/Acervo/trabalhos.html.twig', compact('trabalhos', 'titulo'));
+    }
+
+    /**
+     * @Route("/acervo/autor", name="lista_autores")
+     */
+    public function autoresAction(): Response
+    {
+        $autores = $this->getDoctrine()->getRepository(Autor::class)->findAll();
+
+        return $this->render('@App/Acervo/autores.html.twig', compact('autores'));
+    }
+
+    /**
+     * @Route("/acervo/autor/{autor}", name="trabalhos_por_autor")
+     */
+    public function trabalhosPorAutorAction(Autor $autor): Response
+    {
+        $trabalhos = $this->getDoctrine()->getRepository(Trabalho::class)
+            ->findBy(['autor' => $autor]);
+        $titulo = 'Trabalhos do autor ' . $autor->getNome();
 
         return $this->render('@App/Acervo/trabalhos.html.twig', compact('trabalhos', 'titulo'));
     }

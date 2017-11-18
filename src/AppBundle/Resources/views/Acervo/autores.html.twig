@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <h2>Autores</h2>
+
+    <ul class="list-group">
+        {% for autor in autores %}
+            <li class="list-group-item">
+                <a href="{{ path('trabalhos_por_autor', {'autor': autor.id}) }}">{{ autor.nome }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

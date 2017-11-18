@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="tcc" default="build">
+    <target name="phpcs">
+        <exec executable="./vendor/bin/phpcs">
+            <arg line="--standard=PSR2 --report=full --report-file=qa/phpcs.txt src" />
+        </exec>
+    </target>
+
+    <target name="phpmd">
+        <phpmd rulesets="cleancode,codesize,controversial,design,naming,unusedcode">
+            <fileset dir="src">
+                <include name="**/*.php"/>
+                <exclude name="**/Tests/**/*" />
+            </fileset>
+            <formatter type="text" outfile="qa/phpmd.txt"/>
+        </phpmd>
+    </target>
+
+    <target name="build" depends="phpcs,phpmd">
+
+    </target>
+</project>

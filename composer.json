@@ -38,7 +38,10 @@
         "nelmio/alice": "^3.0@beta",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0",
-        "theofidry/alice-data-fixtures": "^1.0@rc"
+        "theofidry/alice-data-fixtures": "^1.0@rc",
+        "phpmd/phpmd": "@stable",
+        "squizlabs/php_codesniffer": "3.*",
+        "phing/phing": "2.*"
     },
     "scripts": {
         "symfony-scripts": [

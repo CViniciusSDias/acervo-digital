@@ -8,6 +8,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Classe responsável por realizar a busca genérica textual por trabalhos
+ * @package AppBundle\Controller
+ */
 class BuscaController extends Controller
 {
     /**

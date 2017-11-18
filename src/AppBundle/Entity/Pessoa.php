@@ -5,8 +5,7 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Pessoa
- *
+ * Classe responsável por representar uma pessoa, podendo ela ser do tipo Autor ou Orientador
  * @ORM\MappedSuperclass()
  */
 class Pessoa
@@ -27,12 +26,6 @@ class Pessoa
      */
     private $nome;
 
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;

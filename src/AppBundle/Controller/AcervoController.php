@@ -11,6 +11,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Classe responsável por controlar as telas do menu "Acervo"
+ * @package AppBundle\Controller
+ */
 class AcervoController extends Controller
 {
     /**

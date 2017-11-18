@@ -42,24 +42,11 @@ class LinhaPesquisa
         $this->trabalhos = new ArrayCollection();
     }
 
-
-    /**
-     * Get id
-     *
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * Set descricao
-     *
-     * @param string $descricao
-     *
-     * @return LinhaPesquisa
-     */
     public function setDescricao(string $descricao): LinhaPesquisa
     {
         $this->descricao = $descricao;
@@ -67,11 +54,6 @@ class LinhaPesquisa
         return $this;
     }
 
-    /**
-     * Get descricao
-     *
-     * @return string
-     */
     public function getDescricao(): string
     {
         return $this->descricao;

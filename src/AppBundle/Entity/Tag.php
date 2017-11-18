@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Classe resopnsável por representar uma palava-chave, que pode estar associada a um ou mais trabalhos
  * @ORM\Table(name="tag")
  * @ORM\Entity()
  */
@@ -40,11 +41,6 @@ class Tag
         $this->trabalhos = new ArrayCollection();
     }
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;

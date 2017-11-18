@@ -2,6 +2,11 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Autor;
+use AppBundle\Entity\LinhaPesquisa;
+use AppBundle\Entity\Orientador;
+use AppBundle\Entity\Tag;
+
 class TrabalhoRepository extends \Doctrine\ORM\EntityRepository
 {
     /**
@@ -25,5 +30,25 @@ class TrabalhoRepository extends \Doctrine\ORM\EntityRepository
     public function buscarPorAno(int $ano): array
     {
         return $this->findBy(['anoPublicacao' => $ano]);
+    }
+
+    public function buscaGenerica(string $busca): array
+    {
+        $query = $this->createQueryBuilder('t')
+            ->select('t')
+            ->join('t.autor', 'a')
+            ->join('t.orientador', 'o')
+            ->join('t.linhasPesquisa', 'l')
+            ->join('t.tags', 'tags')
+            ->where('t.titulo LIKE :busca')
+            ->orWhere('a.nome LIKE :busca')
+            ->orWhere('o.nome LIKE :busca')
+            ->orWhere('l.descricao LIKE :busca')
+            ->orWhere('tags.nome LIKE :busca')
+            ->setParameter('busca', "%$busca%")
+            ->getQuery();
+
+        return $query->execute();
+
     }
 }

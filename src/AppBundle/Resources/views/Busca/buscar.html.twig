@@ -1,11 +1,13 @@
-{% extends "::base.html.twig" %}
+{% extends "@App/Acervo/trabalhos.html.twig" %}
 
 {% block body %}
-    <form action="{{ path('buscar_trabalhos') }}" class="form-inline text-center formulario-pesquisa">
+    <form action="{{ path('buscar_trabalhos') }}" class="form-inline formulario-pesquisa">
         <div class="form-group">
             <label for="pesquisa">Pesquisa:</label>
             <input type="search" class="form-control" id="pesquisa" name="pesquisa">
         </div>
         <button class="btn btn-default">Pesquisar</button>
     </form>
+
+    {{ parent() }}
 {% endblock %}

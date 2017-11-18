@@ -2,11 +2,6 @@
 
 namespace AppBundle\Repository;
 
-use AppBundle\Entity\Autor;
-use AppBundle\Entity\LinhaPesquisa;
-use AppBundle\Entity\Orientador;
-use AppBundle\Entity\Tag;
-
 class TrabalhoRepository extends \Doctrine\ORM\EntityRepository
 {
     /**

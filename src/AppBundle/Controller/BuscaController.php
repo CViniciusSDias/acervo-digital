@@ -21,5 +21,4 @@ class BuscaController extends Controller
 
         return $this->render('@App/Busca/buscar.html.twig', compact('trabalhos', 'titulo'));
     }
-
 }
